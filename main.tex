@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{hyperref}
+\usepackage{cite}
+
+\begin{document}
+\title{A Software defined approach for Next generation WLAN networks}
+%\section{Abstract}
+
+	
+\section{Introduction}
+\subsection{WLAN architecture}
+\paragraph{}
+The IEEE 802.11 standard does not specify the implementation details of an Access Point or a Station. Instead, the IEEE Std 802.11 defines two types of services: the Station Services (SS) and the distribution system services(DS). Due to the lack of implementation details in IEEE Std 802.11 vendors have come up with different architectures and implementations of the WLAN services. Most of the architectures for IEEE Std 802.11 based WLANs can be classified into the following three categories: 
+
+ 
+
+    \textbf{Autonomous WLAN Architecture}: In this architecture all IEEE 802.11 services, i.e., the station and distribution services are implemented as part of a single device.  
+
+    \textbf{Centralized WLAN Architecture}: The Centralized WLAN Architecture family typically comprises of a centralized controller (commonly called an Access Controller or AC) and a large number of Base Station devices (wireless nodes, typically called the APs but may not support the complete AP functionality). IEEE 802.11 functions/services are typically not implemented as part of a single device in this architecture but the Base Stations together with the AC support these functions and services. The main function of the Controller (AC) is to manage, control, and configure the Base Station devices. Additionally the Controller (AC) may also be an aggregation point for the data plane since it is typically situated in a centralized location in the wireless access network. The AC could be connected to the Base Stations either over an L3 (IP) or L2 (Ethernet) interface. It is possible that multiple ACs are present in a network in order to support redundancy, load balancing, etc. It can also be said that a large percentage of WLAN deployments follow this centralized architecture though the distribution of function/services across the Base Station and the Access Controller may vary. 
+
+    \textbf{Distributed WLAN Architecture}: The third type of WLAN architecture family is a distributed one in which the participating wireless nodes (BSs) form a distributed network among themselves, via wired or wireless media. A wireless mesh network is an example of such an architecture, where the wireless nodes themselves form a mesh network and connect with neighboring wireless nodes over the IEEE Std 802.11 wireless links. Some of these nodes may also have wired (L2/L3) connections to external networks; such nodes may act as the gateways. \\
+    
+
+    
+    The most prevalent architecture in use today is the centralized WLAN architecture. In this architecture the AC manages, controls, and configures the access points also called as Wireless Termination Points(WTP). This is done using CAPWAP\cite{RFC5416} or its variants which are vendor specific. CAPWAP can operate in two configurations Split MAC and Local MAC. In Split MAC mode time sensitive functions are placed in AP while non time sensitive functions along with data is tunneled to the controller via DTLS tunnels. In Local MAC mode all control and management functions are handled locally while data frames are either locally bridged or tunneled as 802.3 frames to AC. In practice Split MAC mode is used widely over local MAC. 
+
+
+    \subsection{Software Defined networking}
+    SDN(Software Defined Networking) aims to separate the control plane and the data plane from each other. Although the SDN architecture was mainly aimed at wired networks we also see it being beneficial for wireless networks. In a SDNised WLAN architecture we see AP(Access Point) analogous to a wired switch and wireless controller analogous to a SDN controller. In case of IEEE 802.11 networks we visualize control plane as functions handling control \& management frames and data plane as functions handling data frames. In our thesis we demonstrate that separating control and data in centralized WLAN architectures outperforms the current approach which unifies control and data planes e.g CAPWAP.
+    
+    
+    
+    \section{Architecture}
+	  In CAPWAP split-mac architecture the data frames are tunneled to the Access Controller(AC) along with some management frames\cite{RFC5416}. In a next-generation network the AC and data gateway need not be necessarily co-located, thus the data packets need to travel to the AC first and then go through the gateway. This takes a heavy toll on network performance and user experience. We propose a new architecture with local breakout where the data frames are not tunneled to the controller, instead they are sent directly to the controller
+    
+    
+    
+    
+   \bibliographystyle{ieeetran}
+     
+     
+   % \bibliographystyle{unsrt}
+    \bibliography{references}
+    
+    
+  \end{document}   
