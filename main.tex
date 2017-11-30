@@ -26,13 +26,32 @@ The IEEE 802.11 standard does not specify the implementation details of an Acces
 
 
     \subsection{Software Defined networking}
-    SDN(Software Defined Networking) aims to separate the control plane and the data plane from each other. Although the SDN architecture was mainly aimed at wired networks we also see it being beneficial for wireless networks. In a SDNised WLAN architecture we see AP(Access Point) analogous to a wired switch and wireless controller analogous to a SDN controller. In case of IEEE 802.11 networks we visualize control plane as functions handling control \& management frames and data plane as functions handling data frames. In our thesis we demonstrate that separating control and data in centralized WLAN architectures outperforms the current approach which unifies control and data planes e.g CAPWAP.
+    SDN(Software Defined Networking) aims to separate the control plane and the data plane from each other. Although the SDN architecture was mainly aimed at wired networks we also see it being beneficial for wireless networks. In a SDNized WLAN architecture we see AP(Access Point) analogous to a wired switch and wireless controller analogous to a SDN controller. In case of IEEE 802.11 networks we visualize control plane as functions handling control \& management frames and data plane as functions handling data frames. In our thesis we demonstrate that separating control and data in centralized WLAN architectures outperforms the current approach which unifies control and data planes e.g CAPWAP.
+    
+    \section{Motivation}
+    The original thought behind the project was to provide a SDNized alternative to CAPWAP protocol and open source the resulting protocol. SDN philosophy dictates separation of data and control plane which is absent in CAPWAP, thus separation of control/configuration/management messages and user data messages were necessary. Because CAPWAP doesn't follow SDN paradigm it tunnels all messages including user data to the cloud which introduces unnecessary latency and reduces the throughput.    
     
     
     
-    \section{Architecture}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    
+    \section{Proposed Controller Architecture}
 	  In CAPWAP split-mac architecture the data frames are tunneled to the Access Controller(AC) along with some management frames\cite{RFC5416}. In a next-generation network the AC and data gateway need not be necessarily co-located, thus the data packets need to travel to the AC first and then go through the gateway. This takes a heavy toll on network performance and user experience. We propose a new architecture with local breakout where the data frames are not tunneled to the controller, instead they are sent directly to the controller
     
+    \section{Performance evaluation}
+    \subsection{ns3 Simulations}
+    
+    \subsection{Testbed results}
     
     
     
