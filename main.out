@@ -1,7 +1,13 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{WLAN architecture}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Software Defined networking}{section.1}% 3
-\BOOKMARK [1][-]{section.2}{Proposed Controller Architecture}{}% 4
-\BOOKMARK [1][-]{section.3}{Performance evaluation}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{ns3 Simulations}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.2}{Testbed results}{section.3}% 7
+\BOOKMARK [2][-]{subsection.1.2}{CAPWAP}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Software Defined networking}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Motivation}{}% 5
+\BOOKMARK [1][-]{section.3}{Architecture}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Control of WLAN Networks}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Admission control}{subsection.3.1}% 8
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Authentication}{subsection.3.1}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.3}{Discovery}{subsection.3.1}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.4}{Quality of service}{subsection.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Management of WLAN Networks}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.1}{NETCONF}{subsection.3.2}% 13
