@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.16)  4 DEC 2017 16:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.16)  5 DEC 2017 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -216,26 +216,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--52
 
 LaTeX Warning: Citation `RFC7950' on page 4 undefined on input line 60.
 
-(./main.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 64.
+
+[4] (./main.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 29CE78645FB133A1ADBDD550A6BEEA2D;849.
+(rerunfilecheck)             Checksum: B7B5C2481730953F7B2B7C60BC418E0E;1072.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 4363 strings out of 494437
- 65665 string characters out of 6166644
+ 4372 strings out of 494437
+ 65791 string characters out of 6166644
  143414 words of memory out of 5000000
- 7706 multiletter control sequences out of 15000+600000
+ 7710 multiletter control sequences out of 15000+600000
  8241 words of font info for 29 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  28i,4n,28p,1217b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -244,10 +248,10 @@ Here is how much of TeX's memory you used:
 mr12.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/local/texlive/2017basic/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmti12.pfb>
-Output written on main.pdf (4 pages, 61763 bytes).
+Output written on main.pdf (5 pages, 64775 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 120 PDF objects out of 1000 (max. 8388607)
+ 107 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 
