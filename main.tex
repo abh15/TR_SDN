@@ -49,8 +49,8 @@ In autonomous WLAN architectures association request/response is used to admit a
 \subsubsection{Authentication}
 Centralized WLAN architectures widely use 802.1X authentication mechanism for authenticating the STAs. This mechanism is well proven thus we used it without any modifications. For our purposes we used a open source version of a AAA server called FreeRADIUS. The STA acts as  supplicant, AP acts as authenticator while the authenticating server resides on the controller. We used the EAP-PEAP method so that each user would have its own credentials while connecting to a same SSID.\\
 \\ \textit{add callflow}
-\subsubsection{Discovery}
-In centralized WLAN architectures the controller needs to manage the IP address allocation scheme for the STAs unlike in the autonomous WLAN architectures. We placed a DHCP server in the controller and disabled the DHCP server element on the AP. Thus whenever a new STA successfully associates with any AP in the network it gets a unique IP address from the controller.
+\subsubsection{Controller discovery}
+In centralized WLAN architectures the AP needs to discover the controller first in order to connect to it. There are several mechanisms to achieve this like providing AP with a IP address or a URL pointing to the controller, use optional fields in DHCP reply etc. We chose to implement the discovery mechanism using a configuration file on AP.
 \subsubsection{Quality of service}
 In wired networks VLAN tagging is used to enforce QoS. Devices are assigned to VLANs based on different parameters like physical port, device MAC address etc. We implemented the same concept in WLAN using Dynamic VLAN.  In this scheme STAs are assigned different VLANs depending on their credentials. A new sub-interface is created on the AP for every VLAN created. Thus the STAs get quality of service depending on what credentials it uses (e.g guest account will get best effort)
 
@@ -60,19 +60,25 @@ In wired networks VLAN tagging is used to enforce QoS. Devices are assigned to V
     There are several protocols already developed which may be used to manage and configure Network devices, such as Simple Network Management Protocol (SNMP),TR-069 and NETCONF. After a comparative assessment we feel that NETCONF is the most suitable for WLAN networks as it offers scalability and high level of programmability. NETCONF uses TCP for transport, XML to encode the messages and SSH for security. NETCONF typically consists of a server on the device to be managed and a client on the controller. NETCONF uses YANG\cite{RFC7950} as a data modelling language.\\
     We created a YANG model which allowed us to set default configuration, transmission power and channel for given radio. We also implemented a asynchronous messaging feature of NETCONF called as notifications where the controller gets data when some event is triggered on the device if controller has subscribed for it.
  \section {Simulations}   
+ 
+ 
  \section{Testbed}
-   \subsubsection{Hardware}
+   \subsection{Hardware}
        \begin{description}
 	   	\item[$\bullet$] Mikrotik Routerboard RB433AH 
 	   	\item[$\bullet$] Mikrotik Routerboard R52Hn 2.4/5 GHz
 	   	\item[$\bullet$] Cisco 2.4/5.8 GHz Omni Antenna
 	   	\item[$\bullet$] RF-Element Case
 	   	\item[$\bullet$] Toyyo RF Card Stub
+	   	\item[$\bullet$] Toshiba Satellite laptop 
 	   	\end{description}
-   	 \subsubsection{Setup}
+   	 \subsection{Setup}
    	 \textit{add diagram}\\
-   	 One of the goals of this project was to provide the internet access in remote unconnected communities. 
-  SDN controller and SDN enabled wifi APs are deployed in Manor cluster from Palghar Testbed. As shown in diagram SDN controller is deployed at Shilshet GP whereas 6 WLAN APs are deployed at Borande GP, Shilshet AP, Kev School, Kev IT School and Kev GP. Also we have set up iperf server in cloud VM with the help of amazon web services. SDN controller performs admission control of WiFi stations based whitelist mac addresses. This can be further used for algorithms like load balancing etc. SDN controller has management interface Netconf with deployed access points to manage and configure them. Control interface between AP and SDN controller is running on TCP port 3000 whereas control interface Netconf is running on TCP port 830. Wireless backhaul links are set up with 5 GHz band and these links are managed with their proprietary interface. Currently our SDN controller manages the last mile SDN enabled APs.  	 
+   	 One of the goals of this project was to provide the internet access in rural unconnected communities, thus we decided to setup our testbed in Palghar district in Maharashtra,India. We deployed wifi APs in 6 different places near Manor. We deployed one AP each in Borande GP, Shilshet GP, Kev School, Kev IT School and two APs in Kev GP. These APs were backhauled using point to point wifi links operating in 5 GHz band. For SDN controller we used a Toshiba satellite laptop installed in Shilshet GP.
+   	 \subsection{Measurement}
+   	 
+   	 
+   	   
    
    \bibliographystyle{ieeetran}
        % \bibliographystyle{unsrt}
