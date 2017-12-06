@@ -72,7 +72,7 @@ In wired networks VLAN tagging is used to enforce QoS. Devices are assigned to V
    	 \subsubsection{Setup}
    	 \textit{add diagram}\\
    	 One of the goals of this project was to provide the internet access in remote unconnected communities. 
-   	 
+  SDN controller and SDN enabled wifi APs are deployed in Manor cluster from Palghar Testbed. As shown in diagram SDN controller is deployed at Shilshet GP whereas 6 WLAN APs are deployed at Borande GP, Shilshet AP, Kev School, Kev IT School and Kev GP. Also we have set up iperf server in cloud VM with the help of amazon web services. SDN controller performs admission control of WiFi stations based whitelist mac addresses. This can be further used for algorithms like load balancing etc. SDN controller has management interface Netconf with deployed access points to manage and configure them. Control interface between AP and SDN controller is running on TCP port 3000 whereas control interface Netconf is running on TCP port 830. Wireless backhaul links are set up with 5 GHz band and these links are managed with their proprietary interface. Currently our SDN controller manages the last mile SDN enabled APs.  	 
    
    \bibliographystyle{ieeetran}
        % \bibliographystyle{unsrt}
