@@ -1,7 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage{hyperref}
+%\usepackage[super]{natbib}
 \usepackage{cite}
-
+\usepackage{graphicx}
+\usepackage{caption}
 \begin{document}
 \title{A Software defined approach for Next generation WLAN networks}
 %\section{Abstract}
@@ -44,11 +46,17 @@ The IEEE 802.11 standard does not specify the implementation details of an Acces
     \section{Architecture}
 \subsection{Control of WLAN Networks}
 \subsubsection{Admission control}
-In autonomous WLAN architectures association request/response is used to admit a station into the network. In this case the decision to admit is made by AP after checking the capabilities of STA. In case of centralized WLAN architectures this same decision needs to be done at the central controller. Also in centralized case decision to admit a STA can depend on various parameters and not just on capability of STA. Thus we created a new message called admission request which is sent from AP to SDN controller for every new association request. This request contains the STA MAC address and the BSSID on which the association request was received although it may contain many more parameters. For this purpose we modified hostapd\cite{hostapd} to open a tcp socket on the AP and send admission request to the controller. \\
-\\ \textit{add callflow} 
+In autonomous WLAN architectures association request/response is used to admit a station into the network. In this case the decision to admit is made by AP after checking the capabilities of STA. In case of centralized WLAN architectures this same decision needs to be done at the central controller. Also in centralized case decision to admit a STA can depend on various parameters and not just on capability of STA. Thus we created a new message called admission request which is sent from AP to SDN controller for every new association request. This request contains the STA MAC address and the BSSID on which the association request was received although it may contain many more parameters. For this purpose we modified hostapd\cite{hostapd} to open a tcp socket on the AP and send admission request to the controller. Once controller receives this request it makes a decision whether to admit STA and sends the result using admission reply to the AP.  
+\begin{figure}
+	\includegraphics[width=\linewidth]{adm_clf.png}
+	\caption{Admission control callflow}
+%	\label{fig:boat1}
+\end{figure}
+
+
 \subsubsection{Authentication}
 Centralized WLAN architectures widely use 802.1X authentication mechanism for authenticating the STAs. This mechanism is well proven thus we used it without any modifications. For our purposes we used a open source version of a AAA server called FreeRADIUS. The STA acts as  supplicant, AP acts as authenticator while the authenticating server resides on the controller. We used the EAP-PEAP method so that each user would have its own credentials while connecting to a same SSID.\\
-\\ \textit{add callflow}
+
 \subsubsection{Controller discovery}
 In centralized WLAN architectures the AP needs to discover the controller first in order to connect to it. There are several mechanisms to achieve this like providing AP with a IP address or a URL pointing to the controller, use optional fields in DHCP reply etc. We chose to implement the discovery mechanism using a configuration file on AP.
 \subsubsection{Quality of service}
@@ -56,7 +64,7 @@ In wired networks VLAN tagging is used to enforce QoS. Devices are assigned to V
 
 
 \subsection{Management of WLAN Networks}
-   \subsubsection{NETCONF}
+   \subsubsection{NETCONF\cite{NETCONF}}
     There are several protocols already developed which may be used to manage and configure Network devices, such as Simple Network Management Protocol (SNMP),TR-069 and NETCONF. After a comparative assessment we feel that NETCONF is the most suitable for WLAN networks as it offers scalability and high level of programmability. NETCONF uses TCP for transport, XML to encode the messages and SSH for security. NETCONF typically consists of a server on the device to be managed and a client on the controller. NETCONF uses YANG\cite{RFC7950} as a data modelling language.\\
     We created a YANG model which allowed us to set default configuration, transmission power and channel for given radio. We also implemented a asynchronous messaging feature of NETCONF called as notifications where the controller gets data when some event is triggered on the device if controller has subscribed for it.
  \section {Simulations}   
@@ -70,19 +78,22 @@ In wired networks VLAN tagging is used to enforce QoS. Devices are assigned to V
 	   	\item[$\bullet$] Cisco 2.4/5.8 GHz Omni Antenna
 	   	\item[$\bullet$] RF-Element Case
 	   	\item[$\bullet$] Toyyo RF Card Stub
-	   	\item[$\bullet$] Toshiba Satellite laptop 
+	   	
 	   	\end{description}
    	 \subsection{Setup}
-   	 \textit{add diagram}\\
-   	 One of the goals of this project was to provide the internet access in rural unconnected communities, thus we decided to setup our testbed in Palghar district in Maharashtra,India. We deployed wifi APs in 6 different places near Manor. We deployed one AP each in Borande GP, Shilshet GP, Kev School, Kev IT School and two APs in Kev GP. These APs were backhauled using point to point wifi links operating in 5 GHz band. For SDN controller we used a Toshiba satellite laptop installed in Shilshet GP.
-   	 \subsection{Measurement}
+   	\begin{figure}
+   		\includegraphics[width=\linewidth]{testbed_setup.jpg}
+   		\caption{Testbed topology}
+   		\label{fig:boat1}
+   	\end{figure}
+   	 One of the goals of this project was to provide the internet access in rural unconnected communities, thus we decided to setup our testbed in Palghar district in Maharashtra,India. We deployed wifi APs in 6 different places near Manor. We deployed one AP each in Borande GP, Shilshet GP, Kev School, Kev IT School and two APs in Kev GP. These APs were backhauled using point to point wifi links operating in 5 GHz band. We used zabbix for monitoring the network with a zabbix server running in cloud.
+   	 \subsection{Measurements}
    	 
    	 
    	   
    
    \bibliographystyle{ieeetran}
-       % \bibliographystyle{unsrt}
-    \bibliography{references}
+   \bibliography{bibref}
     
     
   \end{document}   
